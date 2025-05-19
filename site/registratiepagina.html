@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registratiepagina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('hexanexus.png') no-repeat center center fixed; /* Vervang 'background-image.jpg' door jouw afbeelding */
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .register-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .register-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .register-container label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .register-container input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .register-container button:hover {
+            background-color: #218838;
+        }
+
+        .register-link {
+            display: block;
+            margin-top: 10px;
+            color: #FFA500;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h1>Registreer</h1>
+        <form id="registerForm">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Wachtwoord</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Registreren</button>
+        </form>
+        <a href="login.html" class="register-link">Ben je al lid? Log je in</a>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Verzamel gegevens uit het formulier
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // Maak een object van de gegevens
+            const userData = {
+                username: username,
+                email: email,
+                password: password
+            };
+
+            // Stuur de gegevens naar de server (of sla ze lokaal op)
+            fetch('save_data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Registratie succesvol!");
+                } else {
+                    alert("Er ging iets mis!");
+                }
+            })
+            .catch(error => console.error('Fout:', error));
+        });
+    </script>
+</body>
+</html>

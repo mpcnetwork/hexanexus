@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friedel's Startpagina</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="fade-in">
+        <h1>Welkom op Friedel's wereld!</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Over mij</a></li>
+                <li><a href="#services">Diensten</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>De wereld van Friedel</h2>
+            <p>Friedel is een Content Creator die zich verheft in de wereld van digitale content. Van creatieve verhalen tot analytische artikelen, alles komt bij Friedel aan een goed begin.</p>
+            <img src="f1.jpg" alt="Friedel in actie">
+        </section>
+
+        <section id="about">
+            <h2>Mijlitzing van de auteur</h2>
+            <ul>
+                <li>Kwaliteit · Always</li>
+                <li>Innovatie · Constant</li>
+                <li>Responsief · Zeker</li>
+            </ul>
+        </section>
+
+        <section id="services">
+            <h2>Wat kan ik voor jouw doen?</h2>
+            <ul>
+                <li>Kwaliteitscontrole en -verificatie</li>
+                <li>Digital Content Strategy</li>
+                <li>Training en Ontwikkeling van medewerkers</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact met Friedel</h2>
+            <p>Klik hier om met mij te communiceren: <a href="#contactform">Contactformulier</a></p>
+        </section>
+    </main>
+
+    <script>
+        // Dropdown-menu code
+        document.querySelectorAll('.dropdown-button').forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.nextElementSibling.style.display = 'block';
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.nextElementSibling.style.display = 'none';
+            });
+        });
+
+        // Fade-in animatie
+        document.querySelector('header').addEventListener('animationend', function() {
+            this.classList.remove('fade-in');
+        }, false);
+
+        window.onload = function() {
+            document.querySelector('header').classList.add('fade-in');
+        }
+    </script>
+
+</body>
+</html>

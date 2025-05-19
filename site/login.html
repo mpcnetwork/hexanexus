@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loginpagina</title>
+    <link rel="stylesheet" href="..\static\styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('hexanexus.png') no-repeat center center fixed; /* Vervang 'background-image.jpg' door jouw afbeelding */
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            display: block;
+            margin: 10px 0 5px;
+            text-align: left;
+        }
+
+        .login-container input {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-container .captcha {
+            margin-bottom: 15px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-link {
+            display: block;
+            margin-top: 10px;
+            color: #FFA500;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="verify_captcha" method="post">
+            <label for="username">Gebruikersnaam</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Wachtwoord</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="captcha">
+                <label for="captcha-input">Los de som op: 3 + 5 = ?</label>
+                <input type="text" id="captcha-input" name="captcha" required>
+            </div>
+            
+            <button type="submit">Aanmelden</button>
+        </form>
+        <a href="registratiepagina.html" class="register-link">Nog geen lid? Registreer je</a>
+    </div>
+</body>
+</html>
